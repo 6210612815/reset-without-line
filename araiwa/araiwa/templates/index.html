@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Authentications{% endblock %}
+
+{% block body %}
+<div class="center-screen contentEnglish">
+    <div class="container">
+        <div class="layout-text-box">
+            <p class="head">Authentication</p>
+
+            <form name="myForm" method ="post" action="{% url 'index' %}">
+                {% csrf_token %}
+                <p class="sec-head">Enter your Employee ID</p>
+                <small>Please enter your employee ID.</small><br>
+                <input class="input-box" type="number" name="employee_id" placeholder="" required>
+                <p class="sec-head">Enter your Personal ID card number</p>
+                <small>Please enter your 13-digit ID Card number.</small><br>
+                <input class="input-box" type="number" name="personal_id" placeholder="" required><br>
+                <button class="btn" type="submit">ENTER</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

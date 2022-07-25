@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html>
+    <head>
+        <title>
+            {% block title %} {% endblock %}
+        </title>
+    </head>
+
+    <body>
+        {% if messages %}
+        <div>
+            {% for message in messages %}
+                <div class="alert-box" {% if message.tags %} class="alert-{{ message.tags }}"{% endif %}>{{ message }}</div>
+            {% endfor %}
+        </div>
+        {% endif %}
+        {% block body %} {% endblock %}
+    </body>
+</html>

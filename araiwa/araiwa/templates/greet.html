@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Greeting, {{ name }}{% endblock %}
+
+{% block body %}
+    <h1>{{ employee.title }} {{ employee.name }}</h1>
+
+    <form method ="post" action="{% url 'reset' employee.id %}">
+        {% csrf_token %}
+        <p class="sec-head">Enter New Password</p>
+        <small>To help keep your information safe, your password must contain:</small>
+        <ul>
+            <li><small>At least 8 characters</small></li>
+            <li><small>At least one uppercase, lowercaase letter and numeric.</small></li>
+        </ul>
+
+        <input class="input-box" type="password" name="pass_1st" placeholder="">
+        
+        <p class="sec-head">Confirm New Password</p>
+        <input class="input-box" type="password" name="pass_2nd" placeholder="">
+        <button class="btn" type="submit">Reset</button>
+    </form>
+
+{% endblock %}
